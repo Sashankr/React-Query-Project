@@ -4,6 +4,7 @@ import './App.css';
 import {useState} from  'react';
 import {useQuery} from 'react-query';
 import CondtionalQuery from './CondtionalQuery';
+import GitHubRepoInfo from './GitHubRepoInfo';
 
 const Button = () => {
   const {data,error} = useQuery('hello-world',()=>{
@@ -30,6 +31,8 @@ function App() {
         {visible && <Button /> }
         <button onClick={()=>{setVisible(visible=> !visible)}}>Toggle Button</button>
         <CondtionalQuery/>
+
+        <GitHubRepoInfo />
       </header>
     </div>
   );

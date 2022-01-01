@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -18,10 +18,34 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-grow: 0;
   font-size: calc(10px + 2vmin);
+  padding: 1rem;
   color: white;
+  align-items: flex-start;
+}
+
+.App-header button{
+  width: max-content;
+}
+
+.App-header p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.github-title{
+  margin-bottom: 0.5rem;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+input{
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  background: transparent;
+  width: 250px;
+  outline: unset;
+  color: #fff;
 }
 
 .App-link {
