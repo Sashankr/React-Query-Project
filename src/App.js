@@ -1,22 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 
+import {useState} from  'react';
+import {useQuery} from 'react-query';
+import CondtionalQuery from './CondtionalQuery';
+
+const Button = () => {
+  const {data,error} = useQuery('hello-world',()=>{
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(Math.random())
+      }, 1000);
+    })
+  })
+
+  return <button>A simple button {data}</button>
+
+}
+
 function App() {
+
+  const [visible,setVisible] =  useState(false)
+  
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        {visible && <Button /> }
+        <button onClick={()=>{setVisible(visible=> !visible)}}>Toggle Button</button>
+        <CondtionalQuery/>
       </header>
     </div>
   );
